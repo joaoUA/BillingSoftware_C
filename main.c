@@ -6,16 +6,19 @@
 void showMenu();
 void validateUserOptionInput(int* pOption);
 
-typedef struct InvoiceEntries{
+struct InvoiceEntries{
     char product[50];
     int amount;
     double unitPrince;
-} InvoiceEntry;
+
+    struct InvoiceEntries *next;
+};
+
+typedef struct InvoiceEntries InvoiceEntry;
 
 int main()
 {
     InvoiceEntry invoice;
-    InvoiceEntry invoices[];
     int option;
 
     showMenu();
@@ -29,17 +32,15 @@ int main()
         case 2:
             ///search invoice
             break;
-        case 3
+        case 3:
             ///show all invoices
             break;
-        case 4
+        case 4:
             ///exit program
             break;
         default:
             break;
     }
-
-    printf("Invoice Entry:\n%d %s - %.2lf\n",invoice.amount, invoice.product, invoice.unitPrince);
 
     return 0;
 }
