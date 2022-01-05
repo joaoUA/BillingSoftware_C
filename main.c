@@ -15,14 +15,29 @@ typedef struct InvoiceEntries{
 int main()
 {
     InvoiceEntry invoice;
+    InvoiceEntry invoices[];
     int option;
 
     showMenu();
     validateUserOptionInput(&option);
 
-    strcpy(invoice.product, "apples");
-    invoice.amount = 2;
-    invoice.unitPrince = 1.4;
+    switch(option)
+    {
+        case 1:
+            ///add invoice
+            break;
+        case 2:
+            ///search invoice
+            break;
+        case 3
+            ///show all invoices
+            break;
+        case 4
+            ///exit program
+            break;
+        default:
+            break;
+    }
 
     printf("Invoice Entry:\n%d %s - %.2lf\n",invoice.amount, invoice.product, invoice.unitPrince);
 
