@@ -6,14 +6,20 @@
 void showMenu();
 void validateUserOptionInput(int* pOption);
 
-struct InvoiceEntries{
+
+struct Items{
     char product[50];
     int amount;
-    double unitPrince;
-
-    struct InvoiceEntries *next;
+    float unitPrice;
 };
+typedef struct Items Item;
 
+struct InvoiceEntries{
+    char customer[50];
+    int orderSize;
+    struct InvoiceEntries *next;
+    Item items[];
+};
 typedef struct InvoiceEntries InvoiceEntry;
 
 int main()
