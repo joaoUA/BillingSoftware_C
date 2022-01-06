@@ -3,8 +3,8 @@
 #include <string.h>
 #include <stdbool.h>
 
-void showMenu();
-void validateUserOptionInput(int* pOption);
+#include "Menu.h"
+
 struct InvoiceEntries *getNewInvoice();
 
 struct Items{
@@ -57,41 +57,8 @@ int main()
 }
 
 
-void showMenu()
-{
-    printf("*************************\n");
-    printf("    Menu\n");
-    printf("-------------------------\n");
-    printf(" 1. Add Invoice\n");
-    printf(" 2. Search Invoice\n");
-    printf(" 3. Show All Invoices\n");
-    printf(" 4. Exit\n");
-    printf("-------------------------\n");
-    printf(" Pick your option...\n");
-    printf(".........................\n");
-}
-
-void validateUserOptionInput(int* pOption)
-{
-    bool invalidOption = true;
-    do{
-        scanf("%d", pOption);
-        invalidOption = (*pOption <1 || *pOption > 4);
-
-        if(invalidOption) printf("Invalid Menu Option! Pick your Option...\n");
-    }
-    while(invalidOption);
-}
-
 InvoiceEntry *getNewInvoice()
 {
-    /**
-    Know the size of array of items before allocating memory for the entire struct.
-    Since the demonstration had the user input their name first, I will create a temporary variable to hold it.
-    */
-    ///char tmpName[50];
-    ///Get number of dize
-
     ///Create pointer for new invoice, and allocate memory
     InvoiceEntry *newInvoice = NULL;
     newInvoice = malloc(sizeof(InvoiceEntry));
