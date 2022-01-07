@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "Menu.h"
 
 void showMenu()
@@ -16,10 +17,10 @@ void showMenu()
 
 void validateUserOptionInput(int* pOption)
 {
-
+    ///Validate User's Menu Input
     do{
         scanf("%d", pOption);
-
+        fflush(stdin);
         if(*pOption <1 || *pOption > 4) printf("Invalid Menu Option! Pick your Option...\n");
     }
     while(*pOption <1 || *pOption > 4);

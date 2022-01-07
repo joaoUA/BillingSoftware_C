@@ -1,13 +1,24 @@
 # depslib dependency file v1.0
-1641494761 source:c:\users\joaoo\desktop\projetos\billingsoftware_c\main.c
+1641576757 source:c:\users\joaoo\desktop\projetos\billingsoftware_c\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<stdbool.h>
 	"Menu.h"
+	"Invoice.h"
 
 1641494691 c:\users\joaoo\desktop\projetos\billingsoftware_c\menu.h
 
-1641494934 source:c:\users\joaoo\desktop\projetos\billingsoftware_c\menu.c
+1641577926 source:c:\users\joaoo\desktop\projetos\billingsoftware_c\menu.c
+	<stdio.h>
 	"Menu.h"
+
+1641576658 c:\users\joaoo\desktop\projetos\billingsoftware_c\invoice.h
+
+1641577889 source:c:\users\joaoo\desktop\projetos\billingsoftware_c\invoice.c
+	<stdio.h>
+	<stdbool.h>
+	<stdlib.h>
+	<string.h>
+	"Invoice.h"
 
