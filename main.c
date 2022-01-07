@@ -6,6 +6,8 @@
 #include "Menu.h"
 #include "Invoice.h"
 
+InvoiceEntry *getLastInvoice(InvoiceEntry *head);
+
 int main()
 {
 
@@ -30,13 +32,12 @@ int main()
     showMenu();
     validateUserOptionInput(&option);
 
-    head = getNewInvoice();
-    printf("First entry at %p, number of orders %d, next Invoice at %p\n", head, head->orderSize, head->next);
-
     switch(option)
     {
         case 1:
-            ///add invoice
+            if(head == NULL) head = createNewInvoice();
+            else getLastInvoice(head)->next = createNewInvoice();
+
             break;
         case 2:
             ///search invoice
@@ -54,4 +55,15 @@ int main()
     return 0;
 }
 
+InvoiceEntry *getLastInvoice(InvoiceEntry *head)
+{
+    InvoiceEntry *current = head;
+
+    while(current!=NULL)
+    {
+        if(current->next != NULL) current=current->next;
+        else return current;
+    }
+    return current;
+}
 

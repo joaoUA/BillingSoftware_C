@@ -15,6 +15,6 @@ typedef struct InvoiceEntries{
 } InvoiceEntry;
 
 
-struct InvoiceEntries *getNewInvoice();
+InvoiceEntry *createNewInvoice();
 
 #endif // INVOICE_H_INCLUDED

@@ -5,7 +5,7 @@
 
 #include "Invoice.h"
 
-InvoiceEntry *getNewInvoice()
+InvoiceEntry *createNewInvoice()
 {
     ///Create pointer for new invoice, and allocate memory
     InvoiceEntry *newInvoice = NULL;
