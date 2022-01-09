@@ -27,8 +27,9 @@ InvoiceEntry *createNewInvoice()
 
     ///Get Customer Name
     do{
-        printf("Enter customer name: ");
+        printf("%-35s","Enter customer name: ");
         fgets(newInvoice->customer, sizeof(newInvoice->customer), stdin);
+        newInvoice->customer[strcspn(newInvoice->customer, "\n")] = 0;
         fflush(stdin);
 
         ///Gets the length of the name without '\0' character. Checks if a string was introduced.
@@ -41,7 +42,8 @@ InvoiceEntry *createNewInvoice()
 
     ///Get Number of Items in Order
     do{
-        printf("Amount of Items purchased: ");
+        printf("\n");
+        printf("%-35s", "Amount of Items purchased: ");
         scanf("%d", &(newInvoice->orderSize));
         fflush(stdin);
         validOrderSize = newInvoice->orderSize >= 1 && newInvoice->orderSize <= 50;
@@ -66,7 +68,8 @@ InvoiceEntry *createNewInvoice()
 
         ///Product Name
         do{
-            printf("Introduce product name: ");
+            printf("\n");
+            printf("%-35s","Introduce product name: ");
             fgets(item->product, 50, stdin);
             fflush(stdin);
             validItemName = strlen(item->product) - 1 >= 3;
@@ -77,9 +80,19 @@ InvoiceEntry *createNewInvoice()
         ///Handle 'linebreak' that come with fgets()
         item->product[strcspn(item->product,"\n")] = 0;
 
+        ///Item Unit Price
+        do{
+            printf("%-35s","Introduce the unit Price: ");
+            scanf("%f", &(item->unitPrice));
+            fflush(stdin);
+            validItemPrice = item->unitPrice > 0;
+            if(!validItemPrice) printf("Invalid Unit Price\n");
+        }
+        while(!validItemPrice);
+
         ///Item Amount
         do{
-            printf("Number of %s: ", item->product);
+            printf("%-35s","Introduce the amount: ");
             scanf("%d", &(item->amount));
             fflush(stdin);
 
@@ -88,28 +101,9 @@ InvoiceEntry *createNewInvoice()
         }
         while(!validItemAmount);
 
-        ///Item Unit Price
-        do{
-            printf("Unit Price: ");
-            scanf("%f", &(item->unitPrice));
-            fflush(stdin);
-            validItemPrice = item->unitPrice > 0;
-            if(!validItemPrice) printf("Invalid Unit Price\n");
-        }
-        while(!validItemPrice);
     }
 
-
-    for(int i = 0; i < newInvoice->orderSize; i++)
-    {
-        Item *item = newInvoice->items+i;
-
-        printf("| Item %2d | Name: %20s | Amount %3d | Unit Price %5.2f |\n",
-               i+1,
-               item->product,
-               item->amount,
-               item->unitPrice);
-    }
+    printInvoice(newInvoice);
 
     newInvoice->next = NULL;
     return newInvoice;
@@ -117,6 +111,40 @@ InvoiceEntry *createNewInvoice()
 
 void printInvoice(InvoiceEntry *invoice)
 {
-    printf("FOUND\n");
+    float total = 0;
+    printf("%50s","\nRESTAURANT\n");
+
+    printf("Invoice to: %s\n", invoice->customer);
+    printf("%50s", "--------------------------------------------------");
+    printf("\n%-20s%-15s%-15s", "Items", "Qty", "Total");
+    printf("\n\n");
+
+
+    for(int i = 0; i < invoice->orderSize; i++)
+    {
+        printf("%-20s%-15d%-15.2f\n",
+               invoice->items[i].product,
+               invoice->items[i].amount,
+               invoice->items[i].amount * invoice->items[i].unitPrice);
+        total += invoice->items[i].amount * invoice->items[i].unitPrice;
+    }
+
+    printf("\n");
+    printf("%50s", "--------------------------------------------------");
+    printf("\n");
+    printf("%-44s%6.2f\n", "SubTotal", total);
+    printf("%-44s%6.2f\n", "Discount @10%", total * 0.10);
+    total -= total * 0.10;
+    printf("%50s", "------");
+    printf("\n");
+    printf("%-44s%6.2f\n", "Net Total", total);
+    printf("%-44s%6.2f\n", "CGST @9%",total * 0.09);
+    printf("%-44s%6.2f\n","SGST @9%", total * 0.09);
+    total -= total * 0.09 * 0.09;
+    printf("%50s", "--------------------------------------------------");
+    printf("\n");
+    printf("%-44s%6.2f\n", "Grand Total", total);
+
+    printf("\n");
     return;
 }

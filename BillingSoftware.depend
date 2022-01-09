@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1641719061 source:c:\users\joaoo\desktop\projetos\billingsoftware_c\main.c
+1641720305 source:c:\users\joaoo\desktop\projetos\billingsoftware_c\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -9,13 +9,13 @@
 
 1641494691 c:\users\joaoo\desktop\projetos\billingsoftware_c\menu.h
 
-1641577926 source:c:\users\joaoo\desktop\projetos\billingsoftware_c\menu.c
+1641719401 source:c:\users\joaoo\desktop\projetos\billingsoftware_c\menu.c
 	<stdio.h>
 	"Menu.h"
 
 1641580673 c:\users\joaoo\desktop\projetos\billingsoftware_c\invoice.h
 
-1641718157 source:c:\users\joaoo\desktop\projetos\billingsoftware_c\invoice.c
+1641720291 source:c:\users\joaoo\desktop\projetos\billingsoftware_c\invoice.c
 	<stdio.h>
 	<stdbool.h>
 	<stdlib.h>

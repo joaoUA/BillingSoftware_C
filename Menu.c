@@ -11,7 +11,7 @@ void showMenu()
     printf(" 3. Show All Invoices\n");
     printf(" 4. Exit\n");
     printf("-------------------------\n");
-    printf(" Pick your option...\n");
+    printf(" Your option...\n");
     printf(".........................\n");
 }
 

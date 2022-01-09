@@ -39,6 +39,7 @@ int main()
         {
 
             case 1:
+                system("cls");
                 if(head == NULL) head = createNewInvoice();
                 else getLastInvoice(head)->next = createNewInvoice();
 
