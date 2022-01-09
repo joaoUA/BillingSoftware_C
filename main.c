@@ -8,6 +8,7 @@
 
 InvoiceEntry *getLastInvoice(InvoiceEntry *head);
 void searchMatchingInvoice(char *customerName, InvoiceEntry *head);
+void showAllInvoices(InvoiceEntry *head);
 
 int main()
 {
@@ -56,6 +57,7 @@ int main()
                 break;
             case 3:
                 ///show all invoices
+                showAllInvoices(head);
                 break;
             case 4:
                 exit(0);
@@ -88,8 +90,23 @@ void searchMatchingInvoice(char *customerName, InvoiceEntry *head)
 
     while(current != NULL)
     {
-        if(current->next != NULL){
+        if(strcmp(customerName, current->customer) == 0)
+        {
             printInvoice(current);
         }
+
+        current = current->next;
+    }
+}
+
+void showAllInvoices(InvoiceEntry *head)
+{
+    InvoiceEntry *current = head;
+
+    while(current != NULL)
+    {
+        printInvoice(current);
+
+        current = current->next;
     }
 }
