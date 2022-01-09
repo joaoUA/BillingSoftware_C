@@ -24,42 +24,47 @@ int main()
 
     ///LINKED LIST
     InvoiceEntry *head = NULL;
-    InvoiceEntry *tail = NULL;
 
     ///MENU
     int option;
     char searchName[50];
 
     ///Program Loop
-    showMenu();
-    validateUserOptionInput(&option);
+    do{
+        system("cls");
+        showMenu();
+        validateUserOptionInput(&option);
 
-    switch(option)
-    {
-        case 1:
-            if(head == NULL) head = createNewInvoice();
-            else getLastInvoice(head)->next = createNewInvoice();
+        switch(option)
+        {
 
-            break;
-        case 2:
-            ///search invoice
-            do{
-                printf("Enter Customer Name: ");
-                fgets(searchName, 50, stdin);
-                searchName[strcspn(searchName, "\n")] = 0;
-            }
-            while(strlen(searchName) - 1 < 3);
-            searchMatchingInvoice(searchName, head);
-            break;
-        case 3:
-            ///show all invoices
-            break;
-        case 4:
-            ///exit program
-            break;
-        default:
-            break;
+            case 1:
+                if(head == NULL) head = createNewInvoice();
+                else getLastInvoice(head)->next = createNewInvoice();
+
+                break;
+            case 2:
+                ///search invoice
+                do{
+                    printf("Enter Customer Name: ");
+                    fgets(searchName, 50, stdin);
+                    searchName[strcspn(searchName, "\n")] = 0;
+                }
+                while(strlen(searchName) - 1 < 3);
+                searchMatchingInvoice(searchName, head);
+                break;
+            case 3:
+                ///show all invoices
+                break;
+            case 4:
+                exit(0);
+                break;
+            default:
+                break;
+        }
+        system("pause");
     }
+    while(option != 4);
 
     return 0;
 }

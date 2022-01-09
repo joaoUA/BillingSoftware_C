@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1641718135 source:c:\users\joaoo\desktop\projetos\billingsoftware_c\main.c
+1641719061 source:c:\users\joaoo\desktop\projetos\billingsoftware_c\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -15,7 +15,7 @@
 
 1641580673 c:\users\joaoo\desktop\projetos\billingsoftware_c\invoice.h
 
-1641580724 source:c:\users\joaoo\desktop\projetos\billingsoftware_c\invoice.c
+1641718157 source:c:\users\joaoo\desktop\projetos\billingsoftware_c\invoice.c
 	<stdio.h>
 	<stdbool.h>
 	<stdlib.h>
