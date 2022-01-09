@@ -114,3 +114,9 @@ InvoiceEntry *createNewInvoice()
     newInvoice->next = NULL;
     return newInvoice;
 }
+
+void printInvoice(InvoiceEntry *invoice)
+{
+    printf("FOUND\n");
+    return;
+}

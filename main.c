@@ -7,6 +7,7 @@
 #include "Invoice.h"
 
 InvoiceEntry *getLastInvoice(InvoiceEntry *head);
+void searchMatchingInvoice(char *customerName, InvoiceEntry *head);
 
 int main()
 {
@@ -27,6 +28,7 @@ int main()
 
     ///MENU
     int option;
+    char searchName[50];
 
     ///Program Loop
     showMenu();
@@ -41,6 +43,13 @@ int main()
             break;
         case 2:
             ///search invoice
+            do{
+                printf("Enter Customer Name: ");
+                fgets(searchName, 50, stdin);
+                searchName[strcspn(searchName, "\n")] = 0;
+            }
+            while(strlen(searchName) - 1 < 3);
+            searchMatchingInvoice(searchName, head);
             break;
         case 3:
             ///show all invoices
@@ -67,3 +76,14 @@ InvoiceEntry *getLastInvoice(InvoiceEntry *head)
     return current;
 }
 
+void searchMatchingInvoice(char *customerName, InvoiceEntry *head)
+{
+    InvoiceEntry *current = head;
+
+    while(current != NULL)
+    {
+        if(current->next != NULL){
+            printInvoice(current);
+        }
+    }
+}

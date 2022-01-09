@@ -17,4 +17,6 @@ typedef struct InvoiceEntries{
 
 InvoiceEntry *createNewInvoice();
 
+void printInvoice(InvoiceEntry *invoice);
+
 #endif // INVOICE_H_INCLUDED
